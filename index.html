@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SEO Analyzer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto p-8">
+      <h1 class="text-4xl font-bold text-center text-gray-800 mb-6">
+        SEO Analyzer
+      </h1>
+
+      <!-- Input Form for URL -->
+      <div class="w-full max-w-lg mx-auto bg-white shadow-md rounded px-8 py-6">
+        <form id="seo-form" class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="url"
+            >Enter URL:</label
+          >
+          <input
+            id="url"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="text"
+            placeholder="https://example.com"
+            required
+          />
+          <button
+            id="analyze-btn"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4"
+            type="submit"
+          >
+            Analyze
+          </button>
+        </form>
+
+        <!-- Displaying Results -->
+        <div id="seo-results" class="mt-6 hidden">
+          <h2 class="text-2xl font-bold text-gray-700 mb-4">
+            SEO Analysis Results
+          </h2>
+          <p id="title-tag" class="text-gray-800">
+            <strong>Title Tag:</strong> <span id="title-result"></span>
+          </p>
+          <p id="meta-description" class="text-gray-800">
+            <strong>Meta Description:</strong> <span id="meta-result"></span>
+          </p>
+          <p id="h1-tags" class="text-gray-800">
+            <strong>H1 Tags:</strong> <span id="h1-result"></span>
+          </p>
+          <p id="alt-tags" class="text-gray-800">
+            <strong>Images with Alt Tags:</strong> <span id="alt-result"></span>
+          </p>
+          <p id="canonical-tag" class="text-gray-800">
+            <strong>Canonical Tag:</strong> <span id="canonical-result"></span>
+          </p>
+          <p id="overall-score" class="text-gray-800">
+            <strong>SEO Score:</strong> <span id="score-result"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
