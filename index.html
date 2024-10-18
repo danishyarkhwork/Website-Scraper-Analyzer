@@ -60,5 +60,45 @@
         </div>
       </div>
     </div>
+
+    <script>
+      // JavaScript for handling the form and analyzing the SEO elements
+
+      document
+        .getElementById("seo-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const url = document.getElementById("url").value;
+          analyzeSEO(url);
+        });
+
+      function analyzeSEO(url) {
+        fetch("/analyze-seo", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ url }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById("seo-results").classList.remove("hidden");
+            document.getElementById("title-result").textContent =
+              data.title || "Missing";
+            document.getElementById("meta-result").textContent =
+              data.metaDescription || "Missing";
+            document.getElementById("h1-result").textContent =
+              data.h1Tags || "Missing";
+            document.getElementById(
+              "alt-result"
+            ).textContent = `${data.imagesWithAlt} of ${data.totalImages}`;
+            document.getElementById("canonical-result").textContent =
+              data.canonical || "Missing";
+            document.getElementById("score-result").textContent =
+              data.score || "No score";
+          })
+          .catch((error) => console.error("Error analyzing SEO:", error));
+      }
+    </script>
   </body>
 </html>
